@@ -63,6 +63,11 @@ brew_install_or_upgrade() {
   fi
 }
 
+cask_install() {
+    fancy_echo "Installing $1 ..."
+    brew cask install "$@"
+}
+
 brew_is_installed() {
   local name
   name="$(brew_expand_alias "$1")"
@@ -208,15 +213,31 @@ fancy_echo "Cleaning up old Homebrew formulae ..."
 brew cleanup
 brew cask cleanup
 
-fancy_echo "Installing native apps.."
+fancy_echo "Installing native apps .."
 brew install caskroom/cask/brew-cask
-brew tap caskroom/versions
-brew cask install dropbox
-brew cask install slack
-brew cask install google-chrome
-brew cask install transmit
-brew cask install codekit
-brew cask install dash
+
+cask_install "dropbox"
+cask_install "slack"
+cask_install "google-chrome"
+cask_install "transmit"
+cask_install "codekit"
+cask_install "dash"
+cask_install "sequel-pro"
+cask_install "docker-compose"
+cask_install "webstorm"
+cask_install "phpstorm"
+cask_install "skype"
+cask_install "1password"
+cask_install "arq"
+cask_install "google-photos-backup"
+cask_install "licecap"
+cask_install "cinch"
+cask_install "iterm2"
+
+
+fancy_echo "Installing Composer ..."
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
 
 fancy_echo "Installing Grunt and gulp CLI ..."
 npm install grunt-cli -g
