@@ -1,0 +1,23 @@
+alias kedit='open -a \"/Applications/PhpStorm.app\"'
+alias kdeit='open -a \"/Applications/PhpStorm.app\"'
+alias keidt='open -a \"/Applications/PhpStorm.app\"'
+alias flushdns='sudo killall -HUP mDNSResponder'
+alias git_add='git add -A'
+alias externalIP=\"curl -s http://checkip.dyndns.org | sed 's/[a-zA-Z/<> :]//g'\"
+alias publicIP=\"curl -s http://checkip.dyndns.org | sed 's/[a-zA-Z/<> :]//g'\"
+alias myIP=\"ipconfig getifaddr en0\"
+alias localIP=\"ipconfig getifaddr en0\"
+alias convert_png='mkdir pngs; sips -s format png *.jpg --out pngs'
+alias listSVNexternals=\"svn propget svn:externals -R .\"
+alias svnDiff=\"svn diff -r PREV:COMMITTED\"
+alias apacheStart=\"sudo apachectl start\"
+alias apacheStop=\"sudo apachectl stop\"
+alias apacheRestart=\"sudo apachectl restart\"
+alias sqlStart=\"sudo /usr/local/mysql/support-files/mysql.server start\"
+alias sqlStop=\"sudo /usr/local/mysql/support-files/mysql.server stop\"
+alias mkdir=\"mkdir -p\"
+alias doSSH=\"ssh root@159.203.217.20\"
+alias errorLog=\"rm /tmp/php.log && tail -f /tmp/php.log\"
+alias masterDiff=\"git diff \$(git merge-base --fork-point master)\"
+alias latestTag='git describe --tags `git rev-list --tags --max-count=1`'
+alias latestTagDiff='git show --name-only `git describe --tags` `git rev-list --tags --max-count=1`..'

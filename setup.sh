@@ -144,6 +144,8 @@ brew_install_or_upgrade 'vim'
 brew_install_or_upgrade 'zsh'
 brew_install_or_upgrade 'tree'
 brew_install_or_upgrade 'wget'
+brew install macvim --with-override-system-vim
+brew linkapps macvim
 
 # fancy_echo "Updating Heroku tools ..."
 # brew_install_or_upgrade 'heroku-toolbelt'
@@ -199,31 +201,8 @@ fi
 
 fancy_echo "Setting up ~/.zsh ..."
 append_to_zshrc 'export EDITOR=vim'
-append_to_zshrc "alias kedit='open -a \"/Applications/PhpStorm.app\"'"
-append_to_zshrc "alias kdeit='open -a \"/Applications/PhpStorm.app\"'"
-append_to_zshrc "alias keidt='open -a \"/Applications/PhpStorm.app\"'"
-append_to_zshrc "alias mvim=\"/Applications/MacVim.app/Contents/MacOS/Vim\""
-append_to_zshrc "alias vim='mvim -v'"
-append_to_zshrc "alias flushdns='sudo killall -HUP mDNSResponder'"
-append_to_zshrc "alias git_add='git add -A'"
-append_to_zshrc "alias externalIP=\"curl -s http://checkip.dyndns.org | sed 's/[a-zA-Z/<> :]//g'\""
-append_to_zshrc "alias publicIP=\"curl -s http://checkip.dyndns.org | sed 's/[a-zA-Z/<> :]//g'\""
-append_to_zshrc "alias myIP=\"ipconfig getifaddr en0\""
-append_to_zshrc "alias localIP=\"ipconfig getifaddr en0\""
-append_to_zshrc "alias convert_png='mkdir pngs; sips -s format png *.jpg --out pngs'"
-append_to_zshrc "alias listSVNexternals=\"svn propget svn:externals -R .\""
-append_to_zshrc "alias svnDiff=\"svn diff -r PREV:COMMITTED\""
-append_to_zshrc "alias apacheStart=\"sudo apachectl start\""
-append_to_zshrc "alias apacheStop=\"sudo apachectl stop\""
-append_to_zshrc "alias apacheRestart=\"sudo apachectl restart\""
-append_to_zshrc "alias sqlStart=\"sudo /usr/local/mysql/support-files/mysql.server start\""
-append_to_zshrc "alias sqlStop=\"sudo /usr/local/mysql/support-files/mysql.server stop\""
-append_to_zshrc "alias mkdir=\"mkdir -p\""
-append_to_zshrc "alias doSSH=\"ssh root@159.203.217.20\""
-append_to_zshrc "alias errorLog=\"rm /tmp/php.log && tail -f /tmp/php.log\""
-append_to_zshrc "alias masterDiff=\"git diff \$(git merge-base --fork-point master)\""
-append_to_zshrc "alias latestTag='git describe --tags \`git rev-list --tags --max-count=1\`'"
-append_to_zshrc "alias latestTagDiff='git show --name-only \`git describe --tags\` \`git rev-list --tags --max-count=1\`..'"
+cp ./aliases "$HOME/.aliases"
+append_to_zshrc 'source ~/.aliases'
 
 fancy_echo "Cleaning up old Homebrew formulae ..."
 brew cleanup
