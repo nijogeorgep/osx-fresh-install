@@ -207,3 +207,20 @@ append_to_zshrc 'source ~/.aliases'
 fancy_echo "Cleaning up old Homebrew formulae ..."
 brew cleanup
 brew cask cleanup
+
+fancy_echo "Installing native apps.."
+brew install caskroom/cask/brew-cask
+brew tap caskroom/versions
+brew cask install dropbox
+brew cask install slack
+brew cask install google-chrome
+brew cask install transmit
+brew cask install codekit
+brew cask install dash
+
+fancy_echo "Installing Grunt and gulp CLI ..."
+npm install grunt-cli -g
+npm install gulp -g
+
+fancy_echo "Installing Ruby Sass ..."
+gem_install_or_update "sass"
