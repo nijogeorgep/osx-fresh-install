@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Forked from https://github.com/thoughtbot/laptop
-# Last update 01/14/2016
+# Last update 06/13/2016
 
 fancy_echo() {
   local fmt="$1"; shift
@@ -65,7 +65,7 @@ brew_install_or_upgrade() {
 
 cask_install() {
     fancy_echo "Installing $1 ..."
-    brew cask install "$@"
+    brew cask install "$@ --appdir=/Applications"
 }
 
 brew_is_installed() {
@@ -223,10 +223,8 @@ cask_install "transmit"
 cask_install "codekit"
 cask_install "dash"
 cask_install "sequel-pro"
-cask_install "docker-compose"
 cask_install "webstorm"
 cask_install "phpstorm"
-cask_install "skype"
 cask_install "1password"
 cask_install "arq"
 cask_install "google-photos-backup"
