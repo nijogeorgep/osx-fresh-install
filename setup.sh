@@ -168,8 +168,8 @@ brew_install_or_upgrade 'imagemagick'
 fancy_echo "Updating programming languages ..."
 brew_install_or_upgrade 'libyaml' # should come after openssl
 brew_install_or_upgrade 'node'
-brew_install_or_upgrade 'rbenv'
-brew_install_or_upgrade 'ruby-build'
+#brew_install_or_upgrade 'rbenv'
+#brew_install_or_upgrade 'ruby-build'
 
 # fancy_echo "Updating databases ..."
 # brew_install_or_upgrade 'postgres'
@@ -177,26 +177,26 @@ brew_install_or_upgrade 'ruby-build'
 # brew_launchctl_restart 'postgresql'
 # brew_launchctl_restart 'redis'
 
-fancy_echo "Configuring Ruby ..."
-find_latest_ruby() {
-  rbenv install -l | grep -v - | tail -1 | sed -e 's/^ *//'
-}
+#fancy_echo "Configuring Ruby ..."
+#find_latest_ruby() {
+#  rbenv install -l | grep -v - | tail -1 | sed -e 's/^ *//'
+#}
 
-ruby_version="$(find_latest_ruby)"
+#ruby_version="$(find_latest_ruby)"
 # shellcheck disable=SC2016
-append_to_zshrc 'eval "$(rbenv init - --no-rehash)"' 1
-eval "$(rbenv init -)"
+#append_to_zshrc 'eval "$(rbenv init - --no-rehash)"' 1
+#eval "$(rbenv init -)"
 
-if ! rbenv versions | grep -Fq "$ruby_version"; then
-  rbenv install -s "$ruby_version"
-fi
+#if ! rbenv versions | grep -Fq "$ruby_version"; then
+#  rbenv install -s "$ruby_version"
+#fi
 
-rbenv global "$ruby_version"
-rbenv shell "$ruby_version"
-gem update --system
-gem_install_or_update 'bundler'
-number_of_cores=$(sysctl -n hw.ncpu)
-bundle config --global jobs $((number_of_cores - 1))
+#rbenv global "$ruby_version"
+#rbenv shell "$ruby_version"
+#gem update --system
+#gem_install_or_update 'bundler'
+#number_of_cores=$(sysctl -n hw.ncpu)
+#bundle config --global jobs $((number_of_cores - 1))
 
 if [ -f "$HOME/.laptop.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop.local ..."
@@ -223,8 +223,8 @@ cask_install "transmit"
 cask_install "codekit"
 cask_install "dash"
 cask_install "sequel-pro"
-cask_install "webstorm"
-cask_install "phpstorm"
+#cask_install "webstorm"
+#cask_install "phpstorm"
 cask_install "1password"
 cask_install "arq"
 cask_install "google-photos-backup"
@@ -241,5 +241,5 @@ fancy_echo "Installing Grunt and gulp CLI ..."
 npm install grunt-cli -g
 npm install gulp -g
 
-fancy_echo "Installing Ruby Sass ..."
-gem_install_or_update "sass"
+#fancy_echo "Installing Ruby Sass ..."
+#gem_install_or_update "sass"
