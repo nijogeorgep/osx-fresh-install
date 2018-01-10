@@ -53,7 +53,7 @@ plugins=(gitfast brew dirhistory git-extras npm)
 
 # User configuration
 
-export PATH="/usr/local/bin:/Users/andrewtaylor/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:Users/andrewtaylor/.composer/vendor/bin"
+export PATH="/usr/local/bin:/Users/andrewtaylor/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/andrewtaylor/.composer/vendor/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -84,7 +84,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH="$HOME/.bin:$PATH"
-eval "$(rbenv init - --no-rehash)"
+#eval "$(rbenv init - --no-rehash)"
 
 export EDITOR=vim
 
